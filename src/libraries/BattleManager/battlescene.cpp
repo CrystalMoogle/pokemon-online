@@ -10,7 +10,6 @@
 #include "battlesceneproxy.h"
 #include "pokemoninfoaccessor.h"
 #include "moveinfoaccessor.h"
-#include "themeaccessor.h"
 #include "proxydatacontainer.h"
 #include "defaulttheme.h"
 #include <Utilities/functions.h>

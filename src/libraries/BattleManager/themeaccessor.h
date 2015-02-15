@@ -1,7 +1,7 @@
 #ifndef THEMEACCESSOR_H
 #define THEMEACCESSOR_H
 
-#include <QtDeclarative/QDeclarativeImageProvider>
+#include <QQuickImageProvider>
 #include "defaulttheme.h"
 
 class ThemeAccessor : public QObject, public QDeclarativeImageProvider
