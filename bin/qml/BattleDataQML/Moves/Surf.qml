@@ -1,5 +1,5 @@
-import QtQuick 1.1
-import Qt.labs.particles 1.0
+import QtQuick 2.0
+import QtQuick.Particles 2.0
 
 Move {
     id: main
@@ -26,7 +26,7 @@ Move {
         property real progress: -0.1;
         id: wave;
 
-        source: woof.back ? "../../images/surf-back.png" : "../../images/surf-front.png";
+        source: fieldPoke.back ? "../../images/surf-back.png" : "../../images/surf-front.png";
         parent: main.parent.parent
 
         x: (x0 + (xt-x0)*progress);
@@ -37,16 +37,22 @@ Move {
         width: implicitWidth*(2-progress);
         height: implicitHeight*(0.7+progress)
 
-        Particles {
+        ParticleSystem {
             anchors.fill: parent
-            source: "../../images/flame0.png"
-            lifeSpan: 750
-            count: params.flames ? 6 : 0
-            angle: woof.back ? -45 : (45+90)
-            angleDeviation: 30
-            velocity: 4
-            velocityDeviation: 2
-            fadeInDuration: 300;
+
+            ImageParticle {
+                source: "../../images/flame0.png"
+            }
+            Emitter {
+                lifeSpan: 750
+                maximumEmitted: params.flames ? 6 : 0
+                velocity: AngleDirection {
+                   angle: fieldPoke.back ? -45 : (45+90)
+                   angleVariation: 30;
+                   magnitude: 4;
+                   magnitudeVariation: 2;
+                }
+            }
         }
     }
 

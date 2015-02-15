@@ -1,4 +1,4 @@
-import QtQuick 1.1
+import QtQuick 2.0
 import "../" 1.0
 import "../utilities.js" as Utilities
 import "../spawner.js" as Spawner
@@ -59,7 +59,9 @@ Move {
                                       "z": parent.z
                                   },
                                   function(obj){
-                                      finished.connect(function(){obj.destroy()});
+                                      if (obj) {
+                                        finished.connect(function(){obj.destroy()});
+                                      }
                                       if (finish) {
                                           finished();
                                       }

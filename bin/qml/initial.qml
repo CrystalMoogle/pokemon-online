@@ -1,4 +1,4 @@
-import QtQuick 1.1
+import QtQuick 2.0
 
 Item
 {
@@ -15,9 +15,12 @@ Item
     }
 
     Connections {
+        ignoreUnknownSignals: true
         target: battle.scene
         onLaunched: {
+            console.log("Switching to the scene")
             loader.source = "battlescene.qml"
+            console.log("Switched to the scene")
         }
     }
 }
